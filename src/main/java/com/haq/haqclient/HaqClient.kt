@@ -2,6 +2,7 @@ package com.example.examplemod
 
 import com.haq.haqclient.feature.ChatCommands
 import com.haq.haqclient.feature.GhostBlock
+import com.haq.haqclient.feature.Terminals
 import net.minecraft.init.Blocks
 import net.minecraftforge.fml.client.registry.ClientRegistry
 import net.minecraftforge.fml.common.Mod
@@ -23,6 +24,7 @@ class HaqClient {
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(this)
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(GhostBlock())
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(ChatCommands())
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(Terminals())
     }
 
     companion object {
