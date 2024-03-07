@@ -3,6 +3,7 @@ buildscript {
     ext.kotlin_version = '1.0.6'
     repositories {
         jcenter()
+        mavenCentral()
         maven {
             name = "forge"
             url = "https://repo.essential.gg/repository/maven-public"
@@ -16,13 +17,10 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'kotlin'
-/*
-// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
-}
-*/
-version = "1.0"
+
+
+
+version = "1.0.0"
 group= "com.haq.haqclient" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "haqclient"
 
@@ -44,7 +42,6 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env

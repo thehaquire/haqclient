@@ -21,7 +21,7 @@ class GhostBlock {
         if (System.currentTimeMillis() - lastGhostBlock < 50) return
         val pos = Minecraft.getMinecraft().thePlayer.rayTrace(5.0, 1f).blockPos
         val w: World = Minecraft.getMinecraft().theWorld
-        if (w.getBlockState(pos).block == Blocks.trapped_chest || w.getBlockState(pos).block == Blocks.ender_chest || w.getBlockState(pos).block == Blocks.lever || w.getBlockState(pos).block == Blocks.stone_button || w.getBlockState(pos).block == Blocks.wooden_button) return
+        if (w.getBlockState(pos).block == Blocks.chest || w.getBlockState(pos).block == Blocks.trapped_chest || w.getBlockState(pos).block == Blocks.ender_chest || w.getBlockState(pos).block == Blocks.lever || w.getBlockState(pos).block == Blocks.stone_button || w.getBlockState(pos).block == Blocks.wooden_button) return
         w.setBlockState(pos, Blocks.air.defaultState)
         w.markBlockForUpdate(pos)
         lastGhostBlock = System.currentTimeMillis()

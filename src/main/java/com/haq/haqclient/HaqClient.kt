@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = HaqClient.MODID, version = HaqClient.VERSION)
+@Mod(modid = HaqClient.MODID, version = HaqClient.VERSION, updateJSON = HaqClient.UPDATEVERSION)
 class HaqClient {
 
     @EventHandler
@@ -29,6 +29,7 @@ class HaqClient {
 
     companion object {
         const val MODID = "haqclient"
-        const val VERSION = "1.0"
+        const val VERSION = "1.0.0"
+        const val UPDATEVERSION = "https://raw.githubusercontent.com/thehaquire/haqclient/master/src/main/resources/update.json"
     }
 }
